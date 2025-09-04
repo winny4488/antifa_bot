@@ -46,6 +46,9 @@
 - [Ollama](https://ollama.com/download)
     - Run Ollama
     - Pull Model (mannix/llama3.1-8b-abliterated) (4.7GB)
+- [The Vectorstore](https://drive.google.com/drive/folders/1qcSXrVgGhVh92Dt7AluAPb2Zqjg1x8ay?usp=drive_link)
+    - Without this the bot won't have any of the trained data
+    - Place next to main.py
 
 ---
 
