@@ -91,6 +91,7 @@ if __name__ == "__main__":
             break
         elif user_input.lower() == "!help":
             print("[INFO] Commands: !quit, !dump - Post memory to console, !clear - Clear memory, !refine - Redo last message, !export - Export memory to .json, !import - Import chat memory from .json")
+            continue
         elif user_input.lower() == "!dump":
             print("[INFO] Posting memory to console.")
             print(str(memory.get_history()))
