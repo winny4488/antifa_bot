@@ -65,6 +65,17 @@ class ChatMemory:
 
         return json.dumps(data, ensure_ascii=False, indent=2)
 
+    def export_json_web(self):
+        # Export history for fastapp.py
+        data = {
+            "timestamp": datetime.utcnow().isoformat(),
+            "conversation": self.history
+        }
+
+        print("[INFO] Export succeeded.")
+
+        return json.dumps(data, ensure_ascii=False, indent=2)
+
     # Import history from json string or file
     def import_json(self, source):
         if isinstance(source, str):
