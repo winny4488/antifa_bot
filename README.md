@@ -49,6 +49,8 @@
 - [The Vectorstore](https://drive.google.com/drive/folders/1qcSXrVgGhVh92Dt7AluAPb2Zqjg1x8ay?usp=drive_link)
     - Without this the bot won't have any of the trained data
     - Place next to main.py
+- [ngrok (optional)](https://ngrok.com/)
+    - Use ngrok to give your local FastAPI server a temporary public URL for testing or sharing
 
 ---
 
@@ -64,6 +66,5 @@
 - Once it connects, the bot should go online in discord. Type "!komuna help" to test
 
 ### Web UI
-- Unfinished, although I did connect over ngrok in this current state
-- `python fastapp.py`
-
+- Run fastapp.py with `uvicorn fastapp:app --port 8000`, now you can connect in your browser at 127.0.0.1:8000
+- (Optional) In another terminal, run `ngrok http 8000`, ngrok will display a web address you can share to allow other people to connect, or yourself from another device
