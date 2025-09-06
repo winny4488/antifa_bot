@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Komuna | Antifa Bot</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="icon" href="/static/favicon.ico">
+</head>
+<body class="dark-theme">
+    <div class="container">
+        <div class="sidebar">
+            <h2>Komuna</h2>
+            <div class="controls">
+                <button id="clearBtn">Clear Chat</button>
+                <button id="refineBtn">Refine Last</button>
+                <button id="exportBtn">Export Chat</button>
+                <button id="importBtn">Import Chat</button>
+                <input type="file" id="importFile" accept=".json" style="display: none;">
+            </div>
+            <div class="theme-toggle">
+                <label>
+                    <input type="checkbox" id="themeToggle" checked>
+                    Dark Mode
+                </label>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="chat-area" id="chatArea">
+                <div class="message bot-message">
+                    <strong>Komuna:</strong> Hello! I'm ready to answer your questions. What would you like to know?
+                </div>
+            </div>
+            
+            <div class="input-area">
+                <div class="input-container">
+                    <input type="text" id="messageInput" placeholder="Type your message..." maxlength="2000">
+                    <button id="sendBtn">Send</button>
+                </div>
+                <div class="char-counter">
+                    <span id="charCount">0</span>/2000
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="loadingIndicator" class="loading">Komuna is thinking...</div>
+    
+    <script src="/static/script.js"></script>
+</body>
+</html>
