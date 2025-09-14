@@ -1,4 +1,5 @@
 import discord
+import asyncio
 import os
 from main import rag_query
 from main import refine
@@ -15,7 +16,7 @@ client = discord.Client(intents=intents)
 # Create bot, get token
 # Replace "os.getenv()" with "your_token"
 DISCORD_TOKEN = os.getenv("KOMUNA_TOKEN")
-DISCORD_USER = os.getenv("KOMUNA_USER") # Replace with your User ID integer
+DISCORD_USER = int(os.getenv("KOMUNA_USER")) # Replace with your User ID integer
 
 # Keep memory for context
 memory = ChatMemory(max_messages = 8)
@@ -55,7 +56,7 @@ async def on_message(message):
             # Split into chunks
             chunks = [dump[i:i+max_len] for i in range(0, len(dump), max_len)]
             for chunk in chunks:
-                await message.channel.send(dump)
+                await message.channel.send(chunk)
         return
     elif ref_cmd:
         await message.channel.send("Reanalyzing chat history.")
@@ -104,7 +105,7 @@ async def on_message(message):
         query = query + " (In 2000 characters or less)"
 
         # Get ai response
-        response = rag_query(query, memory_context=recent_messages)
+        response = await asyncio.to_thread(rag_query, query, recent_messages)
         cleaned_response = response.strip(' "\'')
 
         # Store ai response in memory
