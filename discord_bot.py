@@ -61,7 +61,7 @@ async def on_message(message):
     elif ref_cmd:
         await message.channel.send("Reanalyzing chat history.")
         await message.channel.typing()
-        new_response = refine(recent_messages)
+        new_response = await asyncio.to_thread(refine, recent_messages)
         memory.add_message(role = "Komuna", content = new_response)
         await message.channel.send(new_response)
         return
